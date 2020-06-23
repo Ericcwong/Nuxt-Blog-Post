@@ -13,6 +13,20 @@ export default {
   components: {
     PostList
   }
+  // async asyncData(context) {
+  //   const loadedPosts = await loadedPosts()
+  //   return {
+  //     loadedPosts
+  //   }
+  // }
+  // data() {
+  //   return {
+  //     loadedPosts: []
+  //   }
+  // },
+  // created() {
+
+  // }
 }
 </script>
 
