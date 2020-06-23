@@ -10,6 +10,7 @@ export default {
   components: {
     PostList
   },
+  //Fix the call back issue!
   async asyncData(context, loadData) {
     let loadedPosts = await loadData(null, {
       loadedPosts: [
