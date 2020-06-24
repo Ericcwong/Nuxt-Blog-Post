@@ -6,32 +6,63 @@
 
 <script>
 import PostList from '~/components/Posts/PostList'
+
 export default {
   components: {
     PostList
   },
-  //Fix the call back issue!
-  async asyncData(context, loadData) {
-    let loadedPosts = await loadData(null, {
-      loadedPosts: [
-        {
-          id: '1',
-          title: 'First Post',
-          previewText: 'First Post!',
-          thumbnail:
-            'https://c.wallhere.com/photos/c0/31/minimalism_forest_triangle_digital_art_artwork-1702621.jpg!d'
-        },
-        {
-          id: '2',
-          title: 'Second Post',
-          previewText: 'Second Post!',
-          thumbnail:
-            'https://c.wallhere.com/photos/c0/31/minimalism_forest_triangle_digital_art_artwork-1702621.jpg!d'
-        }
-      ]
+  // Fix the call back issue!
+  asyncData(context) {
+    return new Promise((resolve, reject) => {
+      resolve({
+        loadedPosts: [
+          {
+            id: '1',
+            title: 'First Post',
+            previewText: 'First Post!',
+            thumbnail:
+              'https://c.wallhere.com/photos/c0/31/minimalism_forest_triangle_digital_art_artwork-1702621.jpg!d'
+          },
+          {
+            id: '2',
+            title: 'Second Post',
+            previewText: 'Second Post!',
+            thumbnail:
+              'https://c.wallhere.com/photos/c0/31/minimalism_forest_triangle_digital_art_artwork-1702621.jpg!d'
+          }
+        ]
+      })
     })
+      .then(data => {
+        return data
+      })
+      .catch(e => {
+        context.error(new Error())
+      })
   }
 }
+//   asyncData(context, callback) {
+//     setTimeout(() => {
+//       callback(null, {
+//         loadedPosts: [
+//           {
+//             id: '1',
+//             title: 'First Post',
+//             previewText: 'First Post!',
+//             thumbnail:
+//               'https://c.wallhere.com/photos/c0/31/minimalism_forest_triangle_digital_art_artwork-1702621.jpg!d'
+//           },
+//           {
+//             id: '2',
+//             title: 'Second Post',
+//             previewText: 'Second Post!',
+//             thumbnail:
+//               'https://c.wallhere.com/photos/c0/31/minimalism_forest_triangle_digital_art_artwork-1702621.jpg!d'
+//           }
+//         ]
+//       })
+//     }, 1000)
+//   }
 </script>
 
 <style scoped>

@@ -1,12 +1,12 @@
 <template>
   <div class="single-post-page">
     <section class="post">
-      <h1 class="post-title">Title of post</h1>
+      <h1 class="post-title">{{loadedPost.title}}</h1>
       <div class="post-details">
-        <div class="post-detail">Last updated on..</div>
-        <div class="post-detail">Written by..</div>
+        <div class="post-detail">Last updated on {{loadedPost.updatedDate}}</div>
+        <div class="post-detail">Written by {{loadedPost.author}}</div>
       </div>
-      <p>Content here</p>
+      <p>{{loadedPost.content}}</p>
     </section>
     <section class="post-feedback">
       <p class="post-content">
@@ -20,7 +20,33 @@
 </template>
 
 <script>
-export default {}
+export default {
+  asyncData(context) {
+    return new Promise((resolve, reject) => {
+      console.log(context)
+      setTimeout(() => {
+        resolve({
+          loadedPost: {
+            id: '1',
+            title: 'First Post (ID: ' + context.params.id + ')',
+            previewText: 'First Post!',
+            author: 'Eric Wong',
+            updatedDate: new Date(),
+            content: 'Filler text',
+            thumbnail:
+              'https://c.wallhere.com/photos/c0/31/minimalism_forest_triangle_digital_art_artwork-1702621.jpg!d'
+          }
+        })
+      }, 1000)
+    })
+      .then(data => {
+        return data
+      })
+      .catch(e => {
+        context.error(new Error())
+      })
+  }
+}
 </script>
 
 <style scoped>

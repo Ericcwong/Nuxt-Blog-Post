@@ -3,7 +3,7 @@
     <section class="intro">
       <h1>Get the latest updates!</h1>
     </section>
-    <PostList />
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
@@ -12,21 +12,34 @@ import PostList from '~/components/Posts/PostList'
 export default {
   components: {
     PostList
+  },
+  //asyncData loads data from the server but only if the page has not been loaded for the first time
+  asyncData() {
+    //Creates a promise and waits for resolve to execute
+    return new Promise((resolve, reject) => {
+      console.log(resolve)
+      setTimeout(() => {
+        resolve({
+          loadedPosts: [
+            {
+              id: '1',
+              title: 'First Post',
+              previewText: 'First Post!',
+              thumbnail:
+                'https://c.wallhere.com/photos/c0/31/minimalism_forest_triangle_digital_art_artwork-1702621.jpg!d'
+            },
+            {
+              id: '2',
+              title: 'Second Post',
+              previewText: 'Second Post!',
+              thumbnail:
+                'https://c.wallhere.com/photos/c0/31/minimalism_forest_triangle_digital_art_artwork-1702621.jpg!d'
+            }
+          ]
+        })
+      }, 1000)
+    })
   }
-  // async asyncData(context) {
-  //   const loadedPosts = await loadedPosts()
-  //   return {
-  //     loadedPosts
-  //   }
-  // }
-  // data() {
-  //   return {
-  //     loadedPosts: []
-  //   }
-  // },
-  // created() {
-
-  // }
 }
 </script>
 
