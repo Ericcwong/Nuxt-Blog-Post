@@ -4,7 +4,8 @@
 
     <AppControlInput v-model="editedPost.title">Title</AppControlInput>
 
-    <AppControlInput v-model="editedPost.thumbnailLink">Thumbnail Link</AppControlInput>
+    <AppControlInput v-model="editedPost.thumbnail">Thumbnail Link</AppControlInput>
+    <AppControlInput v-model="editedPost.previewText">Preview Text</AppControlInput>
 
     <AppControlInput control-type="textarea" v-model="editedPost.content">Content</AppControlInput>
 
@@ -35,7 +36,8 @@ export default {
         : {
             author: '',
             title: '',
-            thumbnailLink: '',
+            thumbnail: '',
+            previewText: '',
             content: ''
           }
     }
@@ -43,7 +45,7 @@ export default {
   methods: {
     onSave() {
       //Saving a post
-      console.log(this.editedPost)
+      this.$emit('submit', this.editedPost)
     },
     onCancel() {
       //Canceling a post

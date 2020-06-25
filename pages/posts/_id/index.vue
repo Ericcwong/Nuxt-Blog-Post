@@ -20,31 +20,22 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   asyncData(context) {
-    return new Promise((resolve, reject) => {
-      console.log(context)
-      setTimeout(() => {
-        resolve({
-          loadedPost: {
-            id: '1',
-            title: 'First Post (ID: ' + context.params.id + ')',
-            previewText: 'First Post!',
-            author: 'Eric Wong',
-            updatedDate: new Date(),
-            content: 'Filler text',
-            thumbnail:
-              'https://c.wallhere.com/photos/c0/31/minimalism_forest_triangle_digital_art_artwork-1702621.jpg!d'
-          }
-        })
-      }, 1000)
-    })
-      .then(data => {
-        return data
+    console.log(context.params.id)
+    return axios
+      .get(
+        'https://nuxt-blog-f52b3.firebaseio.com/posts/' +
+          context.params.id +
+          '.json'
+      )
+      .then(res => {
+        return {
+          loadedPost: res.data
+        }
       })
-      .catch(e => {
-        context.error(new Error())
-      })
+      .catch(error => console.log(error))
   }
 }
 </script>
