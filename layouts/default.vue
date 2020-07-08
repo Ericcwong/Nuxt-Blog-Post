@@ -7,7 +7,7 @@
 </template>
 <script>
 import TheHeader from '@/components/Nav/TheHeader'
-import TheSideNav from '@/components/Nav/TheSideNav'
+import TheSideNav from '@/components/Nav/TheSidenav'
 export default {
   components: {
     TheHeader,
