@@ -36,7 +36,7 @@ export default {
 
 .new-post {
   text-align: center;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 3px solid #ccc;
   padding-bottom: 10px;
 }
 
