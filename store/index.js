@@ -94,7 +94,11 @@ const createStore = () => {
             localStorage.setItem("tokenExpiration", new Date().getTime() + Number.parseInt(res.expiresIn) * 1000)
             Cookie.set("jwt", res.idToken)
             Cookie.set("expirationDate", new Date().getTime() + Number.parseInt(res.expiresIn) * 1000)
+            return this.$axios.$post("http://localhost:3000/api/track-data", {
+              data: "Authenticated"
+            })
           })
+
           .catch(err =>
             console.warn('Auth Error Message: ', err.response.data.error.message)
           )
@@ -124,10 +128,19 @@ const createStore = () => {
         }
         if (new Date().getTime() > +expirationDate || !token) {
           console.log("No token or invalid token")
-          vuexContext.commit('clearToken')
+          vuexContext.dispatch("logout")
           return;
         }
         vuexContext.commit("setToken", token)
+      },
+      logout(vuexContext) {
+        vuexContext.commit("clearToken");
+        Cookie.remove("jwt");
+        Cookie.remove("expirationDate");
+        if (process.client) {
+          localStorage.removeItem("token");
+          localStorage.removeItem("tokenExpiration");
+        }
       }
     },
     getters: {
