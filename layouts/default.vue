@@ -6,8 +6,8 @@
   </div>
 </template>
 <script>
-import TheHeader from '~/components/Nav/TheHeader'
-import TheSideNav from '~/components/Nav/TheSideNav'
+import TheHeader from '@/components/Nav/TheHeader'
+import TheSideNav from '@/components/Nav/TheSideNav'
 export default {
   components: {
     TheHeader,
