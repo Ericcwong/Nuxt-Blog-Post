@@ -35,14 +35,14 @@ module.exports = {
    ** Global CSS
    */
   css: [
-    "~assets/styles/main.css"
+    "@/assets/styles/main.css"
   ],
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '~plugins/core-component.js',
-    '~plugins/date-filter.js'
+    '@/plugins/core-component.js',
+    '@/plugins/date-filter.js'
   ],
   /*
    ** Nuxt.js dev-modules
