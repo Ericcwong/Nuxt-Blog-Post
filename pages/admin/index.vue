@@ -2,6 +2,9 @@
   <div class="admin-page">
     <section class="new-post">
       <AppButton @click="$router.push('/admin/new-post')">Create Post</AppButton>
+      <AppButton>
+        <nuxt-link to="/">Home</nuxt-link>
+      </AppButton>
       <AppButton @click="onLogout">Logout</AppButton>
     </section>
     <section class="existing-posts">
@@ -42,5 +45,8 @@ export default {
 
 .existing-posts h1 {
   text-align: center;
+}
+a {
+  color: white;
 }
 </style>
