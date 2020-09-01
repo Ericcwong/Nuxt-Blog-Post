@@ -13,20 +13,20 @@
 
 <script>
 export default {
-  layout: 'admin',
-  middleware: ['auth'],
+  layout: "admin",
+  middleware: ["auth"],
   computed: {
     loadedPost() {
-      return this.$store.getters.loadedPosts
+      return this.$store.getters.loadedPosts;
     }
   },
   methods: {
     onLogout() {
-      this.$store.dispatch('logout')
-      this.$router.push('/admin/auth')
+      this.$store.dispatch("logout");
+      this.$router.push("/admin/auth");
     }
   }
-}
+};
 </script>
 
 <style scoped>

@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'PostPreview',
+  name: "PostPreview",
   props: {
     id: {
       type: String,
@@ -37,10 +37,10 @@ export default {
   },
   computed: {
     postLink() {
-      return this.isAdmin ? '/admin/' + this.id : '/posts/' + this.id
+      return this.isAdmin ? "/admin/" + this.id : "/posts/" + this.id;
     }
   }
-}
+};
 </script>
 
 <style scoped>

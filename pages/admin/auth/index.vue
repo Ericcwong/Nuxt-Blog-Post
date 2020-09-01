@@ -6,12 +6,13 @@
         <AppControlInput type="password" v-model="password">Password</AppControlInput>
         <!-- <p style="color=red">{{}}</p> -->
         <AppButton type="submit">{{ isLogin ? 'Login' : 'Sign Up' }}</AppButton>
-        <AppButton
+        <!-- Removed Sign up option -->
+        <!-- <AppButton
           type="button"
           btn-style="inverted"
           style="margin-left: 10px"
           @click="isLogin = !isLogin"
-        >Switch to {{ isLogin ? 'Signup' : 'Login' }}</AppButton>
+        >Switch to {{ isLogin ? 'Signup' : 'Login' }}</AppButton>-->
       </form>
     </div>
   </div>
@@ -19,29 +20,29 @@
 
 <script>
 export default {
-  name: 'AdminAuthPage',
-  layout: 'admin',
+  name: "AdminAuthPage",
+  layout: "admin",
   data() {
     return {
       isLogin: true,
-      email: '',
-      password: ''
-    }
+      email: "",
+      password: ""
+    };
   },
   methods: {
     onSubmit() {
       this.$store
-        .dispatch('authenticateUser', {
+        .dispatch("authenticateUser", {
           isLogin: this.isLogin,
           email: this.email,
           password: this.password
         })
         .then(() => {
-          this.$router.push('/admin')
-        })
+          this.$router.push("/admin");
+        });
     }
   }
-}
+};
 </script>
 
 <style scoped>
