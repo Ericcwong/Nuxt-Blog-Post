@@ -3,7 +3,7 @@
     <header class="the-header">
       <TheSideNavToggle @toggle="$emit('sidenavToggle')" />
       <div class="logo">
-        <nuxt-link to="/">WD BLOG</nuxt-link>
+        <nuxt-link to="/">Eric's Blog</nuxt-link>
       </div>
       <div class="spacer"></div>
       <div class="navigation-items">
@@ -24,14 +24,14 @@
 </template>
 
 <script>
-import TheSideNavToggle from '@/components/Nav/TheSideNavToggle'
+import TheSideNavToggle from "@/components/Nav/TheSideNavToggle";
 
 export default {
-  name: 'TheHeader',
+  name: "TheHeader",
   components: {
     TheSideNavToggle
   }
-}
+};
 </script>
 
 
