@@ -1,7 +1,7 @@
 <template>
   <div class="home-page">
     <section class="intro">
-      <h1>Get the latest updates!</h1>
+      <h1>"When life puts you in tough situations, don't say why me? Just say try me!" —Unknown</h1>
     </section>
     <PostList :posts="loadedPosts" />
   </div>
