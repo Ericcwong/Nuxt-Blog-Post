@@ -10,6 +10,7 @@
           My name is Eric and I am a full stack web developer. I never thought that I would ever start a blog but after
           so many life event happening, it becomes harder to keep track of what has been happening. That is why I decided to create a blog!
         </p>
+        <hr />
         <p>
           Although it isn't the most pretty or functional web blog, it is a start of something, the best thing about this is that I am able to make it the way I want it to be.
           For future addons I want to be able to add images to each individual blog post and make it more interactive for users.
@@ -32,9 +33,16 @@ h1 {
   display: flex;
   max-width: 900px;
   margin: 0 auto;
+  border: 1px solid black;
+  box-shadow: 3px 3px black;
+  border-radius: 5px;
+  padding: 10px;
 }
 .contentImage {
   margin-right: 20px;
+}
+hr {
+  border-top: 1px solid gray;
 }
 p {
   font-size: 1.25rem;
